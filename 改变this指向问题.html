@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>改变this指向问题</title>
+</head>
+<body>
+    <script>
+        var obj = {
+            name:'1',
+            fn : function (element){
+            console.log(this.name+'和'+element)
+            }
+        }
+        obj.fn(2) //此时 this.name指向的是obj.naem 因为是obj调用的this 谁调用就是谁
+        var b = {
+            name:3
+        }
+        obj.fn.apply(b,['3']) // 要用数组的形式
+        obj.fn.call(b,4) //不需要数组的形式
+        // bind会返回一个新函数 
+        obj.fn.bind(b)('5')
+    </script>
+</body>
+</html>

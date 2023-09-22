@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一个函数根据参数来决定被调用</title>
+</head>
+
+<body>
+    <button onclick="handleCLick(1)" class="btn">
+        测试
+    </button>
+    <button onclick="handleDevice(1,'pronter')" class="btn">
+        测试1
+    </button>
+    <button onclick="handleDevice(2)" class="btn">
+        测试2
+    </button>
+    <button onclick="handleDevice(4)" class="btn">
+        测试3
+    </button>
+    <button onclick="handleDevice(4)" class="btn">
+        测试4
+    </button>
+    <button onclick="handleDevice(1)" class="btn">
+        测试5
+    </button>
+    <script>
+        var bt = document.querySelector('.btn')
+        bt.addEventListener('click', handleCLick())
+        function handleCLick(i) {
+            console.log(i)
+        }
+
+
+
+       
+        function handleDevice(id, type) {
+            console.log("Device ID: " + id + ", Device Type: " + type);
+        }
+        //有点多此一举了感觉
+
+        handleDevice(1, "Printer");
+        handleDevice(2, "Scanner");
+        handleDevice(3, "Monitor");
+        handleDevice(4, "Keyboard");
+    </script>
+</body>
+
+</html>
