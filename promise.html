@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>promise</title>
+</head>
+<body>
+    <div>
+        回掉函数的升级版 用于处理花费时间较多的任务进行异步处理 防止阻塞  在resolve接受成功参数 reject接受失败参数 通过.then和.catch返回成功失败 finally是最终的结果
+    </div>
+    <div>
+        解决回掉地狱和可维护性
+    </div>
+    <script>
+     const booler = false
+     const promise =new Promise ((resolve,reject)=>{
+        if(booler) {
+            resolve('调用了then方法 成功')
+        }else {
+            reject ('我是reject 失败了的方法')
+        }
+     })
+
+     promise.then(res=>{
+        console.log(res);
+     }).catch(err=>{
+        console.log(err);
+     }).finally(()=>{
+        console.log('我是最终结果');
+     })
+
+     const imgUrl = 'https://pic.52112.com/180705/JPG-180705_48/UPsRtSIKqF_small.jpg'
+     const showImg =(url)=>{
+        return new Promise((resolve,reject)=>{
+            const img = new Image()
+            img.src=url;
+            img.onload=(()=>{
+                resolve (img)
+            })
+            img.onerror=(()=>{
+                reject(new Error('图片地址有误'))
+            })
+        })
+     }
+     showImg(imgUrl).then(res=>{
+        document.body.appendChild(res)
+     }).catch((err)=>{
+        document.body.innerHTML=err
+     })
+    </script>
+</body>
+</html>

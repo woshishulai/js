@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作用域链</title>
+</head>
+<body>
+    <script>
+        //作用域
+        var a = 100
+
+        function one  (){
+            console.log(a); //100
+        }
+
+        function two () {
+            var a = 200
+            one()//100
+        }
+        
+        two()
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>闭包</title>
+</head>
+<body>
+    <script>
+        //简易的闭包 
+        function fn1 () {
+            let i = 0
+            function fn2 () {
+                i++
+                console.log(i)
+            }
+            return fn2()
+        }
+        fn1()
+
+        // 首先 i可以被任何人使用并且i不是全局变量 并且不会被外部所更改 并且函数内部可以访问外部变量
+        function fn3 () {
+            let i =100
+            return function () {
+                i--
+                console.log(i)
+                return i
+            }
+        }
+        let newFn = fn3()
+        let num ={}        
+        num.age =newFn()
+        console.log(num)
+    </script>
+</body>
+</html>
