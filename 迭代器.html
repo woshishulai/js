@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>迭代器</title>
+</head>
+<body>
+    <script>
+        var a = [1,2,3,4]
+        var s = a[Symbol.iterator]()
+        console.log(s.next())
+        console.log(s.next())
+        console.log(s.next())
+        console.log(s.next())
+        console.log(s.next())
+
+    </script>
+      <script>
+        //迭代器就是不断的取数据 并且能知道取完了没有
+        //从一个数组中按照一定顺序 不断的取数据的过程
+        let arr = [1,2,3,4,5];
+        //创建迭代器
+        let iter = arr[Symbol.iterator]();
+    
+        console.log(iter.next()) //得到一个对象  {deno:false,value:1} deno=false 代表迭代没有结束后面还要值 value=1 也就是数组索引0的值
+        console.log(iter.next()) //得到一个对象  {deno:false,value:2} deno=false 代表迭代没有结束后面还要值 value=1 也就是数组索引0的值
+        console.log(iter.next()) //得到一个对象  {deno:false,value:3} deno=false 代表迭代没有结束后面还要值 value=1 也就是数组索引0的值
+        console.log(iter.next()) //得到一个对象  {deno:false,value:4} deno=false 代表迭代没有结束后面还要值 value=1 也就是数组索引0的值
+        console.log(iter.next()) //得到一个对象  {deno:false,value:5} deno=false 代表迭代没有结束后面还要值 value=1 也就是数组索引0的值
+        console.log(iter.next()) //得到一个对象  {deno:true,value:undefined} deno=true 代表迭代完了 value=undefined 没有内容了
+      </script>
+</body>
+</html>

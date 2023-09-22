@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>递归</title>
+</head>
+<body>
+    <script>
+        function add (a) {
+         if(a===1){
+            return 1
+         } else {
+            return a + add(a-1)
+         }
+        }
+        add(5)
+        console.log(add(10))
+    </script>
+</body>
+</html>

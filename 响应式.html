@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>proxy</title>
+</head>
+<body>
+  <script>
+    // 1 定义个对象
+   let obj = {
+    name : '我是属性target',
+    age  : 18
+   }
+   // 2 定义个新的代理对象
+   let obj3 =new Proxy(obj,{})
+   console.log(obj3)
+   let obj2 = new Proxy (obj,{
+    get(target,property){
+      console.log('当访问obj2里面的属性的时候 我会被触发get方法 ',1,target,2,property) //targer就是属性 property就是值 
+      return target[property]
+    },
+    set(targer,property,newValue){
+      console.log('执行了set')
+      console.log(1,targer,2,property,3,newValue)
+      //在这里进行修改 属性成为新的值
+      targer[property]=newValue
+    }
+   })
+   console.log(obj2,'查看新代理对象') //返回的结果是个Proxy对象 里面包含了targer数组 数组中包含了obj的属性和值 但是此时并没有触发get方法  仅仅是查看了代理的对象的本身
+   console.log(obj2.age,'查看新代理对象里面的值')//访问代理对象的值就会触发get方法 ,target就是属性 property就是值
+   obj2.age=30
+   console.log(obj2)
+  </script>
+</body>
+</html>
