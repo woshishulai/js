@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>深拷贝浅拷贝</title>
+</head>
+<body>
+    <script>
+        var obj1 = {
+            name :'测试1',
+            age  :23
+        }
+        //这里是将obj1存储数据的地址给obj2绑定了 所以改变就都会改变
+        var obj2 =obj1
+        obj2.age=18
+        obj2.name='测试2'
+        console.log(obj1)  //测试2和18
+        obj1.name='测试3'  
+        console.log(obj2) //测试3和18
+
+        // 深拷贝就是复制他的值而不是地址 他们数据相同 但是毫无关联
+        var obj3 = {
+            name:'测试4',
+            age:23,
+        }
+        
+        let obj4 = Array.isArray(obj3)?[]:{}
+        for(let i in obj3) {
+        //    if(obj3.hasOwnProperty[i]){
+        //     obj4[i]=obj3[i]
+        //    }
+        obj4[i]=obj3[i]
+           
+        }
+        console.log(obj4)
+        obj3.age=60
+        obj4.age=100
+        console.log(obj3,obj4)
+    </script>
+</body>
+</html>

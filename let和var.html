@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>let var</title>
+</head>
+<body>
+    <script>
+        // 不会报错 在程序眼里 所有的var变量都是  var num提升到最顶部  然后 num=3
+        console.log(num)
+        var num = 3;
+       //没有作用域
+        for(var i =0;i<5;i++){
+
+        }
+        console.log(i)
+        //变量覆盖
+        var name ='wang'
+        var name ='shu'
+        console.log(name)
+    </script>
+</body>
+</html>
