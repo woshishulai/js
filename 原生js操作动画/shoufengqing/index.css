@@ -1,0 +1,29 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+li {
+    list-style: none;
+}
+
+.wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    padding: 10px 0;
+    background-color: skyblue;
+}
+
+.wrap ul {
+    height: 30px;
+    overflow: hidden;
+}
+
+.wrap ul li {
+    height: 30px;
+    line-height: 30px;
+    padding-right: 30px;
+}
