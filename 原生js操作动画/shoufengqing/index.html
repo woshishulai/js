@@ -21,6 +21,45 @@
         </ul>
     </div>
 </body>
-<script src="./index.js"></script>
+<!-- <script src="./index.js"></script> -->
+<script>
+    //1 添加第一个节点到最后 可做循环效果\
+    (function () {
+        //获取ul的实例
+        var list = document.querySelector('.list')
+        function cloneNode() {
+            var firstItem = list.children[0]
+            var newItem = firstItem.cloneNode(true)
+            list.appendChild(newItem)
+        }
+        cloneNode()
+        var duration = 2000
+        setInterval(moveNext, duration);
+        var curIndex = 0; //第几项
+        var itemHeight = 30; // 每一个的高度
+        function moveNext() {
+            var from = curIndex * itemHeight//一开始这个ul滚动条的高度
+            curIndex++
+            var to = curIndex * itemHeight //下一项的高度
+            var totalDuration = 300 //多少时间内完成
+            var duration = 10 //多久执行一次
+            var times = totalDuration / duration //一共执行多少次
+            var dis = (to - from) / times
+            // 定一个定时器 每次滚动一点
+            var timer = setInterval(() => {
+                from += dis
+                if (from >= to) {
+                    clearInterval(timer)
+                    if (curIndex === list.children.length - 1) {
+                        // list.scrollTop = 0
+                        from = 0
+                        curIndex = 0
+                    }
+                }
+                list.scrollTop = from
+            }, duration);
+        }
+    })()
+</script>
 
 </html>
